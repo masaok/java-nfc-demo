@@ -34,6 +34,10 @@ public class CardReader {
             ResponseAPDU response = channel.transmit(command);
             System.out.println("Response: " + response);
 
+            // Get and print the status word
+            int statusWord = response.getSW();
+            System.out.println("Status Word: " + Integer.toHexString(statusWord));
+
             // Convert response data bytes to hexadecimal and print
             byte[] responseData = response.getData();
             StringBuilder sb = new StringBuilder();
